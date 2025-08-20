@@ -1,0 +1,312 @@
+{
+  "info": {
+    "name": "Expense Split Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"laksh\", \"email\": \"lala@example.com\"}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/users",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Groups",
+      "item": [
+        {
+          "name": "Create Group",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"roomates\", \"base_currency\": \"USD\"}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id\": 1}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/members",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "members"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Expenses",
+      "item": [
+        {
+          "name": "Add Equal Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"payer_id\": 1, \"amount\": \"90.00\", \"currency\": \"USD\", \"split_type\": \"EQUAL\", \"description\": \"Dinner\"}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/expenses",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "expenses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Exact Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"payer_id\": 1, \"amount\": \"100.00\", \"currency\": \"USD\", \"split_type\": \"EXACT\", \"exact_shares\": [\"70.00\", \"30.00\"]}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/expenses",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "expenses"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Percentage Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"payer_id\": 1, \"amount\": \"200.00\", \"currency\": \"USD\", \"split_type\": \"PERCENTAGE\", \"percentages\": [\"60.00\", \"40.00\"]}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/expenses",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "expenses"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Balances",
+      "item": [
+        {
+          "name": "Get Group Balances",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/balances",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "balances"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Settlements",
+      "item": [
+        {
+          "name": "Create Settlement",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"from_user_id\": 2, \"to_user_id\": 1, \"amount\": \"30.00\", \"currency\": \"USD\"}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/settlements",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "settlements"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Simplify",
+      "item": [
+        {
+          "name": "Simplify Debts",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/v1/groups/1/simplify",
+              "protocol": "http",
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "groups",
+                "1",
+                "simplify"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
